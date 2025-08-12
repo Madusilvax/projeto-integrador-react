@@ -1,0 +1,29 @@
+import "./Menu.css"
+
+
+function Menu() {
+    return (
+        <>
+            <nav className="navbar navbar-expand-lg">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="index.html">ARIIAM HOSPEDAGEM</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarScroll">
+                        <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+                            <li className="nav-item"><a className="nav-link active" aria-current="page" href="SOBRENOS.HTML">SOBRE NÓS</a></li>
+                            <li className="nav-item"><a className="nav-link" href="CABANAS.HTML">CABANAS</a></li>
+                            <li className="nav-item"><a className="nav-link" href="AREADOHOSPEDE.HTML">ÁREA DO HÓSPEDE</a></li>
+                            <li className="nav-item"><a className="nav-link" href="GALERIA.HTML">GALERIA</a></li>
+                            <li className="nav-item"><a className="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </>
+    )
+}
+
+export default Menu
