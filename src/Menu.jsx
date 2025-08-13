@@ -16,7 +16,6 @@ function Menu() {
                             <li className="nav-item"><a className="nav-link active" aria-current="page" href="SOBRENOS.HTML">SOBRE NÓS</a></li>
                             <li className="nav-item"><a className="nav-link" href="CABANAS.HTML">CABANAS</a></li>
                             <li className="nav-item"><a className="nav-link" href="AREADOHOSPEDE.HTML">ÁREA DO HÓSPEDE</a></li>
-                            <li className="nav-item"><a className="nav-link" href="GALERIA.HTML">GALERIA</a></li>
                             <li className="nav-item"><a className="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a></li>
                         </ul>
                     </div>
