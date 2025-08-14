@@ -1,69 +1,68 @@
+import { useEffect } from "react";
+
 function Areahospede() {
-    useEffect(() => {
-        const toastEl = document.getElementById("boasVindasToast");
-        if (toastEl) {
-            const toast = new window.bootstrap.Toast(toastEl);
-            toast.show();
-        }
+    // useEffect(() => {
+    //     const toastEl = document.getElementById("boasVindasToast");
+    //     if (toastEl) {
+    //         const toast = new window.bootstrap.Toast(toastEl);
+    //         toast.show();
+    //     }
 
-        const form = document.getElementById("formReserva");
-        const tipoCabana = document.getElementById("tipoCabana");
-        const diariasInput = document.getElementById("diarias");
-        const valorDisplay = document.getElementById("valorTotal");
+    //     const form = document.getElementById("formReserva");
+    //     const tipoCabana = document.getElementById("tipoCabana");
+    //     const diariasInput = document.getElementById("diarias");
+    //     const valorDisplay = document.getElementById("valorTotal");
 
-        function calcularValor() {
-            const tipo = tipoCabana.value;
-            const diarias = parseInt(diariasInput.value);
-            let valorNoite = 0;
+    //     function calcularValor() {
+    //         const tipo = tipoCabana.value;
+    //         const diarias = parseInt(diariasInput.value);
+    //         let valorNoite = 0;
 
-            switch (tipo) {
-                case "rustica":
-                    valorNoite = 180;
-                    break;
-                case "moderna":
-                    valorNoite = 250;
-                    break;
-                case "sustentavel":
-                    valorNoite = 200;
-                    break;
-                default:
-                    valorNoite = 0;
-            }
+    //         switch (tipo) {
+    //             case "rustica":
+    //                 valorNoite = 180;
+    //                 break;
+    //             case "moderna":
+    //                 valorNoite = 250;
+    //                 break;
+    //             case "sustentavel":
+    //                 valorNoite = 200;
+    //                 break;
+    //             default:
+    //                 valorNoite = 0;
+    //         }
 
-            if (valorNoite > 0 && diarias > 0) {
-                const total = valorNoite * diarias;
-                valorDisplay.textContent = `R$ ${total
-                    .toFixed(2)
-                    .replace(".", ",")}`;
-            } else {
-                valorDisplay.textContent = "R$ 0,00";
-            }
-        }
+    //         if (valorNoite > 0 && diarias > 0) {
+    //             const total = valorNoite * diarias;
+    //             valorDisplay.textContent = `R$ ${total
+    //                 .toFixed(2)
+    //                 .replace(".", ",")}`;
+    //         } else {
+    //             valorDisplay.textContent = "R$ 0,00";
+    //         }
+    //     }
 
-        if (tipoCabana) tipoCabana.addEventListener("change", calcularValor);
-        if (diariasInput) diariasInput.addEventListener("input", calcularValor);
+    //     if (tipoCabana) tipoCabana.addEventListener("change", calcularValor);
+    //     if (diariasInput) diariasInput.addEventListener("input", calcularValor);
 
-        if (form) {
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
-                const toastEl = document.getElementById("toastReserva");
-                const toast = new window.bootstrap.Toast(toastEl);
-                toast.show();
-            });
-        }
+    //     if (form) {
+    //         form.addEventListener("submit", function (e) {
+    //             e.preventDefault();
+    //             const toastEl = document.getElementById("toastReserva");
+    //             const toast = new window.bootstrap.Toast(toastEl);
+    //             toast.show();
+    //         });
+    //     }
 
-        return () => {
-            if (tipoCabana) tipoCabana.removeEventListener("change", calcularValor);
-            if (diariasInput) diariasInput.removeEventListener("input", calcularValor);
-        };
-    }, []);
+    //     return () => {
+    //         if (tipoCabana) tipoCabana.removeEventListener("change", calcularValor);
+    //         if (diariasInput) diariasInput.removeEventListener("input", calcularValor);
+    //     };
+    // }, []);
 
     return (
         <>
-            <div className="text-center">
-                <h1>Seja Bem-Vindo à Nossa Casa 🏕</h1>
-                <p>Descubra experiências únicas, conforto e conexão com a natureza.</p>
-            </div>
+           
 
             <div className="container">
                 <h2>Reserva de Cabanas</h2>

@@ -1,4 +1,4 @@
-import Menu from '../Menu'
+
 import Carousel from '../Carousel'
 import Buton from '../Buton'
 
