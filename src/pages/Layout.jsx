@@ -1,7 +1,6 @@
-import Menu from './Menu'
-import Titulo from './Titulo'
-import Carousel from './Carousel'
-import Buton from './Buton'
+import Menu from '../Menu'
+import Titulo from '../Titulo'
+import { Outlet, Link } from 'react-router-dom'
 
 function Layout() {
 
@@ -12,9 +11,9 @@ function Layout() {
       <Menu />
       <div className='container'>
         <Titulo />
-        <Carousel />
-        <Buton />
+        <Outlet />
       </div>
+
     </>
   )
 }

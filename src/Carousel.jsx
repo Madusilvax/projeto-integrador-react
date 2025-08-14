@@ -13,7 +13,7 @@ function Carousel() {
                     </div>
                     <div className="carousel-item">
                         <center>
-                            <img src="domosp.jpg" clasNames="d-block w-50 rounded" alt="Vista da cabana" />
+                            <img src="domosp.jpg" className="d-block w-50 rounded" alt="Vista da cabana" />
                         </center>
                     </div>
                     <div className="carousel-item">

@@ -1,4 +1,4 @@
-function NoPage() {
+function Nopage() {
     return (
         <>
         <h2 className="display-5 text-center">404</h2>
@@ -7,4 +7,4 @@ function NoPage() {
     )
 };
 
-export default NoPage;
+export default Nopage;

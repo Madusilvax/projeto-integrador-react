@@ -1,7 +1,6 @@
-function Sobre() {
+function Sobrenos() {
     return (
         <>
-            <h1 className="display-5 text-center">Seja Bem-Vindo à Nossa Casa 🏕</h1>
             <div class="text-center mt-4">
                 <h1>Sobre Nós</h1>
                 <p>Conheça um pouco mais sobre o nosso refúgio e o que nos motiva.</p>
@@ -29,10 +28,10 @@ function Sobre() {
                 <div class="col text-center">
                     <h2>Valores</h2>
                     <ul class="list-unstyled">
-                        <li>🤝 Hospitalidade verdadeira</li>
-                        <li>🌱 Respeito à natureza</li>
-                        <li>💖 Cuidado em cada detalhe</li>
-                        <li>🌍 Sustentabilidade e responsabilidade</li>
+                        <li> Hospitalidade verdadeira</li>
+                        <li> Respeito à natureza</li>
+                        <li> Cuidado em cada detalhe</li>
+                        <li> Sustentabilidade e responsabilidade</li>
                     </ul>
                 </div>
             </div>
@@ -48,9 +47,8 @@ function Sobre() {
                 &copy; 2025 Ariiam Hospedagem - Todos os direitos reservados.
             </footer>
 
-            <script src="https://cdn.jsdelivr.net
         </>
     )
 }
 
-export default Sobre
+export default Sobrenos
