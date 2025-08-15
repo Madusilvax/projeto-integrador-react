@@ -35,17 +35,12 @@ function Sobrenos() {
                     </ul>
                 </div>
             </div>
+            <br>
+                <footer class="bg-light text-center py-3">
+                    &copy; 2025 Ariiam Hospedagem - Todos os direitos reservados.
+                </footer>
+            </br>
 
-
-            <div class="text-center mt-4 mb-5">
-                <a href="AREADOHOSPEDE.HTML" class="btn btn-success btn-lg px-5">Faça sua Reserva</a>
-            </div>
-
-
-
-            <footer class="bg-light text-center py-3">
-                &copy; 2025 Ariiam Hospedagem - Todos os direitos reservados.
-            </footer>
 
         </>
     )

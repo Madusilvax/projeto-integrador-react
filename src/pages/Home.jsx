@@ -1,15 +1,14 @@
 
 import Carousel from '../Carousel'
 import Buton from '../Buton'
+import Titulo from '../Titulo'
 
 function Home() {
     return (
         <>
-            <h2 className="display-5 text-center">Home</h2>
+            <Titulo />
             <Carousel />
             <Buton />
-
-
         </>
     )
 }

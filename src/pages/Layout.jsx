@@ -10,8 +10,8 @@ function Layout() {
 
       <Menu />
       <div className='container'>
-        <Titulo />
         <Outlet />
+
       </div>
 
     </>

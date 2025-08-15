@@ -8,6 +8,7 @@ import Home from "./pages/Home.jsx"
 import Sobrenos from "./pages/Sobrenos.jsx"
 import Nopage from "./pages/Nopage.jsx"
 import Areahospede from "./pages/Areahospede.jsx"
+import Cabanas from "./pages/Cabanas.jsx"
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path="Sobrenos" element={<Sobrenos />} />
                     <Route path="*" element={<Nopage />} />
                     <Route path="Areahospede" element={<Areahospede />} />
+                    <Route path="cabanas" element={<Cabanas />} />
                 </Route>
             </Routes>
         </BrowserRouter>

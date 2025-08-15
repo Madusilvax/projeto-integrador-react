@@ -13,10 +13,9 @@ function Menu() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarScroll">
                         <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-                            <li className="nav-item"><a className="nav-link active" aria-current="page" href="/Sobrenos">SOBRE NÓS</a></li>
-                            <li className="nav-item"><a className="nav-link" href="CABANAS.HTML">CABANAS</a></li>
-                            <li className="nav-item"><a className="nav-link" href="/Areahospede">ÁREA DO HÓSPEDE</a></li>
-                            <li className="nav-item"><a className="nav-link" href="ATIVIDADES.HTML">ATIVIDADES</a></li>
+                            <li className="nav-item"><a className="nav-link active" aria-current="page" href="/Sobrenos">Sobre Nós</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/Cabanas">Cabanas</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/Areahospede">Área Hospede</a></li>
                         </ul>
                     </div>
                 </div>

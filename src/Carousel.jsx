@@ -31,8 +31,8 @@ function Carousel() {
                     <span className="visually-hidden">Próximo</span>
                 </button>
             </div>
-
         </>
+        
     )
 }
 
