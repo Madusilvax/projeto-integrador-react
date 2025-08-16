@@ -1,5 +1,5 @@
 import "../pages/Cabanas.css"
-import CardCabanas from "../componentes/Cardcabanas";
+import CardCabanas from "../componentes/CardCabanas";
 function Cabanas() {
     return (
         <>
