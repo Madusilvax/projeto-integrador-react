@@ -1,179 +1,195 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Modal, Button } from 'react-bootstrap';
+import "./Areahospede.css";
 
 function Areahospede() {
-    // useEffect(() => {
-    //     const toastEl = document.getElementById("boasVindasToast");
-    //     if (toastEl) {
-    //         const toast = new window.bootstrap.Toast(toastEl);
-    //         toast.show();
-    //     }
+    // Definindo o estado para mostrar o modal
+    const [mostrarModal, setMostrarModal] = useState(false);
+    const [valorTotal, setValorTotal] = useState(0);
+    const [tipoCabana, setTipoCabana] = useState("");
+    const [diarias, setDiarias] = useState(1);
 
-    //     const form = document.getElementById("formReserva");
-    //     const tipoCabana = document.getElementById("tipoCabana");
-    //     const diariasInput = document.getElementById("diarias");
-    //     const valorDisplay = document.getElementById("valorTotal");
+    const [show, setShow] = useState(false);
+    const [imagemSelecionada, setImagemSelecionada] = useState('');
 
-    //     function calcularValor() {
-    //         const tipo = tipoCabana.value;
-    //         const diarias = parseInt(diariasInput.value);
-    //         let valorNoite = 0;
+    const handleClose = () => setShow(false);
 
-    //         switch (tipo) {
-    //             case "rustica":
-    //                 valorNoite = 180;
-    //                 break;
-    //             case "moderna":
-    //                 valorNoite = 250;
-    //                 break;
-    //             case "sustentavel":
-    //                 valorNoite = 200;
-    //                 break;
-    //             default:
-    //                 valorNoite = 0;
-    //         }
+    const handleShow = (src) => {
+        setImagemSelecionada(src);
+        setShow(true);
+    };
 
-    //         if (valorNoite > 0 && diarias > 0) {
-    //             const total = valorNoite * diarias;
-    //             valorDisplay.textContent = `R$ ${total
-    //                 .toFixed(2)
-    //                 .replace(".", ",")}`;
-    //         } else {
-    //             valorDisplay.textContent = "R$ 0,00";
-    //         }
-    //     }
+    // Função para calcular o valor total da reserva
+    function calcularValor() {
+        let valorNoite = 0;
 
-    //     if (tipoCabana) tipoCabana.addEventListener("change", calcularValor);
-    //     if (diariasInput) diariasInput.addEventListener("input", calcularValor);
+        switch (tipoCabana) {
+            case "rustica":
+                valorNoite = 180;
+                break;
+            case "moderna":
+                valorNoite = 250;
+                break;
+            case "sustentavel":
+                valorNoite = 200;
+                break;
+            case "praia":
+                valorNoite = 200;
+                break;
+            default:
+                valorNoite = 0;
+        }
 
-    //     if (form) {
-    //         form.addEventListener("submit", function (e) {
-    //             e.preventDefault();
-    //             const toastEl = document.getElementById("toastReserva");
-    //             const toast = new window.bootstrap.Toast(toastEl);
-    //             toast.show();
-    //         });
-    //     }
+        const total = valorNoite * diarias;
+        setValorTotal(total);
+    }
 
-    //     return () => {
-    //         if (tipoCabana) tipoCabana.removeEventListener("change", calcularValor);
-    //         if (diariasInput) diariasInput.removeEventListener("input", calcularValor);
-    //     };
-    // }, []);
+    // Função para abrir o modal
+    const handleConfirmarReserva = () => {
+        setMostrarModal(true);
+    };
+
+    // Função para fechar o modal
+    const handleFecharModal = () => {
+        setMostrarModal(false);
+    };
+
+    // useEffect para recalcular valor total toda vez que `tipoCabana` ou `diarias` mudar
+    useEffect(() => {
+        calcularValor();
+    }, [tipoCabana, diarias]);
 
     return (
-        <>
-           
+        <div className="container py-5">
+            <div className="card-reserva mx-auto">
+                <div className="card-reserva__header">
+                    <div>
+                        <h2 className="card-reserva__title">Reserva de Cabanas</h2>
+                        <p className="card-reserva__subtitle">
+                            Escolha o tipo, informe as diárias e veja o total automaticamente.
+                        </p>
+                    </div>
+                    <span className="card-reserva__tag">ARIIAM</span>
+                </div>
 
-            <div className="container">
-                <h2>Reserva de Cabanas</h2>
-
-                <form id="formReserva">
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Nome completo"
-                        required
-                    />
-                    <input
-                        type="email"
-                        className="form-control mt-2"
-                        placeholder="E-mail"
-                        required
-                    />
-                    <input
-                        type="tel"
-                        className="form-control mt-2"
-                        placeholder="Telefone / WhatsApp"
-                        required
-                    />
-                    <input type="date" className="form-control mt-2" required />
-                    <input
-                        type="number"
-                        className="form-control mt-2"
-                        placeholder="Número de pessoas"
-                        min="1"
-                        required
-                    />
-                    <select
-                        className="form-control mt-2"
-                        id="tipoCabana"
-                        required
-                    >
-                        <option value="">Tipo de Cabana</option>
-                        <option value="rustica">Rústica</option>
-                        <option value="moderna">Moderna</option>
-                        <option value="sustentavel">Sustentável</option>
-                    </select>
-
-                    <input
-                        type="number"
-                        id="diarias"
-                        className="form-control mt-2"
-                        placeholder="Número de diárias"
-                        min="1"
-                        required
-                    />
-
-                    <div className="mt-3">
-                        <strong>Valor Total:</strong>{" "}
-                        <span id="valorTotal">R$ 0,00</span>
+                <form id="formReserva" className="card-reserva__body">
+                    <div className="grid-2">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Nome completo"
+                            required
+                        />
+                        <input
+                            type="email"
+                            className="form-control"
+                            placeholder="E-mail"
+                            required
+                        />
+                        <input
+                            type="tel"
+                            className="form-control"
+                            placeholder="Telefone / WhatsApp"
+                            required
+                        />
+                        <input type="date" className="form-control" required />
                     </div>
 
-                    <div className="d-flex align-items-center mt-3">
+                    <div className="grid-3 mt-3">
+                        <input
+                            type="number"
+                            className="form-control"
+                            placeholder="Número de pessoas"
+                            min="1"
+                            required
+                        />
+
+                        <select
+                            className="form-control"
+                            value={tipoCabana}
+                            onChange={(e) => setTipoCabana(e.target.value)}
+                            required
+                        >
+                            <option value="">Tipo de Cabana</option>
+                            <option value="rustica">Rústica — R$ 180/noite</option>
+                            <option value="moderna">Moderna — R$ 250/noite</option>
+                            <option value="sustentavel">Sustentável — R$ 200/noite</option>
+                            <option value="praia">Praia — R$ 230/noite</option>
+                        </select>
+
+                        <input
+                            type="number"
+                            value={diarias}
+                            onChange={(e) => setDiarias(e.target.value)}
+                            className="form-control"
+                            placeholder="Número de diárias"
+                            min="1"
+                            required
+                        />
+                    </div>
+
+                    <div className="valor-box mt-4">
+                        <div>
+                            <strong>Valor Total:</strong>
+                            <span className="valor-box__pill">
+                                R$ {valorTotal.toFixed(2).replace(".", ",")}
+                            </span>
+                        </div>
+                        <small className="text-muted">
+                            * valores por diária. taxas ou descontos podem ser aplicados.
+                        </small>
+                    </div>
+
+                    <div className="pagamento mt-3">
                         <i className="bi bi-credit-card"></i>
-                        <span className="ms-2">
-                            Pagamento seguro via PIX, cartão ou transferência
-                        </span>
+                        <span>Pagamento seguro via PIX, cartão ou transferência</span>
                     </div>
 
-                    <button type="submit" className="btn btn-success mt-4">
+                    <button
+                        type="button"
+                        className="btn-confirmar mt-4"
+                        onClick={() => handleShow('aaa')}
+                    >
                         Confirmar Reserva
                     </button>
+
+
+                    {/* Modal */}
+                    {mostrarModal && (
+                        <div className="modal-overlay">
+                            <div className="modal">
+                                <h3>Confirmação da Reserva</h3>
+                                <p>Sua reserva foi enviada com sucesso!</p>
+                                <button onClick={handleFecharModal} className="btn-fechar">
+                                    Fechar
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
                 </form>
             </div>
-            <div className="toast-container position-fixed bottom-0 end-0 p-3">
-                <div
-                    id="boasVindasToast"
-                    className="toast align-items-center"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div className="d-flex">
-                        <div className="toast-body">👋 Bem-vindo ao Refúgio ARIIAM!</div>
-                        <button
-                            type="button"
-                            className="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                        ></button>
-                    </div>
-                </div>
 
-                <div
-                    id="toastReserva"
-                    className="toast align-items-center"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true"
-                >
-                    <div className="d-flex">
-                        <div className="toast-body">
-                            Reserva enviada com sucesso! 🌿
-                        </div>
-                        <button
-                            type="button"
-                            className="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast"
-                        ></button>
-                    </div>
-                </div>
-            </div>
-
-            <footer className="bg-light text-center py-3 mt-4">
-                &copy; 2025 Ariiam Hospedagem - Todos os direitos reservados.
+            <footer className="text-center mt-5 text-muted">
+                &copy; 2025 Ariiam Hospedagem — Todos os direitos reservados.
             </footer>
-        </>
+
+            <Modal show={show} onHide={handleClose} centered>
+
+                <Modal.Body className="text-center">
+                    <h1>pix</h1>
+                    <br></br>
+                    <h1>Cartão Debito ou Crédito</h1>
+                    <br></br>
+                    <h1>Boleto</h1>
+
+
+
+                </Modal.Body>
+
+            </Modal>
+        </div>
     );
 }
 
-export default Areahospede
+export default Areahospede;

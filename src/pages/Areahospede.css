@@ -1,51 +1,219 @@
-body {
-      background-color: #f4f1ee;
-      font-family: 'Segoe UI', sans-serif;
-      color: rgb(0, 0, 0);
-    }
+/* layout geral do card */
+.card-reserva {
+  max-width: 880px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(230, 226, 226, 0.08), 0 2px 6px rgba(243, 241, 241, 0.04);
+  border: 1px solid #eef0f2;
+}
 
-    h1,
-    h2 {
-      color: #8c9c88;
-    }
+/* header do card */
+.card-reserva__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
 
-    .navbar {
-      border-bottom: 2px solid #ffffff;
-      background-color: #ffffff;
-    }
+.card-reserva__title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2d3a2f; /* verde escuro elegante */
+  font-weight: 700;
+}
 
-    .container {
-      max-width: 800px;
-      margin-top: 50px;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
+.card-reserva__subtitle {
+  margin: 6px 0 0;
+  color: #6b766d;
+}
 
-    .form-control {
-      margin-bottom: 15px;
-    }
+.card-reserva__tag {
+  background: #e9f3ea;
+  color: #2f6b3e;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
 
-    .bi-credit-card {
-      font-size: 1.5rem;
-      color: #28a745;
-      margin-right: 8px;
-    }
+/* corpo do card */
+.card-reserva__body {
+  margin-top: 8px;
+}
 
-    .btn-success {
-      width: 100%;
-      padding: 12px;
-      font-size: 1.1em;
-    }
+/* grades responsivas */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
 
-    .toast-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
 
-    .toast {
-      background-color: #8c9c88;
-      color: #fff;
-    }
+@media (max-width: 768px) {
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* inputs e selects */
+.form-control {
+  width: 100%;
+  border: 1px solid #dfe3e6;
+  background: #fafbfc;
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: #7aa885;
+  box-shadow: 0 0 0 4px rgba(122, 168, 133, 0.15);
+  background: #fff;
+}
+
+/* área do valor total */
+.valor-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f6f9f7;
+  border: 1px dashed #cfe0d3;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.valor-box__pill {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 6px 12px;
+  background: #2f6b3e;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* pagamento e botão */
+.pagamento {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #455045;
+}
+
+.btn-confirmar {
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, #6aa77a 0%, #2f6b3e 100%);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-confirmar:hover {
+  filter: brightness(1.03);
+  box-shadow: 0 8px 18px rgba(47, 107, 62, 0.25);
+}
+
+.btn-confirmar:active {
+  transform: translateY(1px);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fundo preto semitransparente */
+  display: flex;
+  align-items: center; /* Alinha o modal verticalmente */
+  justify-content: center; /* Alinha o modal horizontalmente */
+  z-index: 1050; /* Garantir que o modal fique sobre outros elementos */
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%; /* Ajuste a largura do modal */
+  max-width: 500px; /* Largura máxima para o modal */
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-in-out; /* Animação suave ao aparecer */
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-fechar {
+  margin-top: 1rem;
+  background: #444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 480px) {
+  .modal {
+    width: 95%; /* Modal ocupa 95% da tela em dispositivos móveis */
+  }
+}
+
+
+/* Modal e fundo preto */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fundo preto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.btn-fechar {
+  margin-top: 1rem;
+  background: #444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
